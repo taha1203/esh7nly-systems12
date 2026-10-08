@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080b12">
+<title>ESH7NLY — نظام إدارة فودافون</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="login" class="login-wrap">
+  <div class="login-glow"></div>
+  <div class="login-card">
+    <div class="brand-lockup"><div class="brand-mark">E</div><div><div class="logo brand-text">ESH7NLY</div><div class="brand-sub">SMART TELECOM MANAGEMENT</div></div></div>
+    <div class="login-line"></div>
+    <p class="muted">نظام احترافي لإدارة المشتركين والتجار والأرباح</p>
+    <label>اسم المستخدم<input id="loginUser" placeholder="admin" autocomplete="username"></label>
+    <label>كلمة المرور<input id="loginPass" placeholder="••••" type="password" autocomplete="current-password"></label>
+    <button id="loginBtn" class="primary full">دخول إلى النظام <span>←</span></button>
+    <div id="loginMsg" class="error"></div>
+    <div class="login-foot">ESH7NLY • BUSINESS CONTROL CENTER</div>
+  </div>
+</div>
+
+<div id="app" class="hidden app-shell">
+<aside class="sidebar">
+  <div class="side-brand"><div class="brand-mark small-mark">E</div><div><b class="brand-text">ESH7NLY</b><small>CONTROL CENTER</small></div></div>
+  <div class="profile"><div class="avatar">A</div><div><b>Admin</b><small>مدير النظام</small></div><i></i></div>
+  <nav class="side-nav">
+    <button data-page="homePage" class="nav active"><span>⌂</span> الرئيسية</button>
+    <button data-page="vodafonePage" class="nav"><span>◉</span> فودافون</button>
+    <button data-page="subscribersPage" class="nav"><span>♙</span> المشتركين</button>
+    <button data-page="merchantsPage" class="nav"><span>▣</span> التجار</button>
+    <button data-page="dashboardPage" class="nav"><span>◒</span> الأرباح والإعدادات</button>
+    <button data-page="etisalatPage" class="nav"><span>◌</span> اتصالات <em>قريبًا</em></button>
+  </nav>
+  <div class="side-bottom">
+    <div class="sync-card"><div class="sync-dot"></div><div><b id="syncMini">جاري الفحص…</b><small>مزامنة الأجهزة</small></div></div>
+    <button id="logoutBtn" class="logout">↪ تسجيل الخروج</button>
+  </div>
+</aside>
+
+<div class="main-shell">
+<header class="topbar">
+  <div class="mobile-brand"><div class="brand-mark tiny-mark">E</div><b class="brand-text">ESH7NLY</b></div>
+  <div class="top-search">⌕ <span>ابحث عن اسم، رقم، عميل أو معلومة...</span></div>
+  <div class="top-actions">
+    <button id="backBtn" class="icon-action">‹ <span>رجوع</span></button>
+    <button id="homeBtn" class="icon-action">⌂ <span>الرئيسية</span></button>
+    <button id="quickAdd" class="primary small">＋ تفعيل جديد</button>
+  </div>
+</header>
+
+<main>
+<section id="homePage" class="page">
+  <div class="hero-pro">
+    <div class="hero-copy"><div class="eyebrow light">ESH7NLY • BUSINESS INTELLIGENCE</div><h1>أرقام أكثر، أرباح أكبر.</h1><p>إدارة أسرع. متابعة أدق. كل شغلك في لوحة واحدة.</p><div class="hero-actions"><button class="hero-btn" data-page="subscribersPage">إدارة المشتركين ↗</button><button class="hero-link" data-page="dashboardPage">عرض التقارير</button></div></div>
+    <div class="hero-art"><div class="sim-card"><div class="sim-circle">◉</div><div><b>VODAFONE</b><small>SMART BUSINESS</small></div></div><div class="beam b1"></div><div class="beam b2"></div></div>
+    <div class="hero-date"><small>اليوم</small><b id="todayLabel">نظام ESH7NLY</b><span>● متصل ومزامن</span></div>
+  </div>
+
+  <div id="homeStats" class="stat-grid executive"></div>
+  <div class="section-head"><div><span class="eyebrow">PERFORMANCE</span><h2>نظرة سريعة على الأداء</h2></div><button id="showAlertsBtn" class="link-btn">كل التنبيهات ↗</button></div>
+  <div id="smartStats" class="grid two executive-panels"></div>
+  <div class="section-head"><div><span class="eyebrow">RENEWALS</span><h2>تنبيهات التجديد</h2></div></div>
+  <div id="renewalAlerts" class="alerts-grid"></div>
+  <div class="section-head"><div><span class="eyebrow">CYCLE SUMMARY</span><h2>أداء أيام التفعيل</h2></div></div>
+  <div id="dayProfitCards" class="grid two"></div>
+</section>
+
+<section id="etisalatPage" class="page hidden"><div class="empty-state pro-empty"><div class="empty-ring">◌</div><span class="eyebrow">COMING SOON</span><h2>اتصالات</h2><p>القسم جاهز في الواجهة، وسيتم تفعيله في إصدار قادم.</p></div></section>
+
+<section id="vodafonePage" class="page hidden">
+  <div class="page-title"><div><span class="eyebrow">VODAFONE / MODULES</span><h2>مركز فودافون</h2><p class="muted">اختار القسم اللي عايز تديره.</p></div></div>
+  <div class="choice-grid pro-choice">
+    <button class="choice" data-page="subscribersPage"><div class="choice-icon red">♙</div><b>المشتركين</b><span>التفعيلات، التجديد، التحصيل، البحث والتصفية.</span><strong>فتح القسم ↗</strong></button>
+    <button class="choice" data-page="merchantsPage"><div class="choice-icon purple">▣</div><b>التجار</b><span>مبيعات وتكلفة وربح كل تاجر بشكل واضح.</span><strong>فتح القسم ↗</strong></button>
+    <button class="choice" data-page="dashboardPage"><div class="choice-icon blue">◒</div><b>الأرباح والإعدادات</b><span>تكاليف الباقات، حساب عويس، النسخ الاحتياطي.</span><strong>فتح القسم ↗</strong></button>
+    <button class="choice disabled-choice" data-page="etisalatPage"><div class="choice-icon gray">◌</div><b>اتصالات</b><span>الخدمة قيد التطوير.</span><strong>قريبًا</strong></button>
+  </div>
+</section>
+
+<section id="subscribersPage" class="page hidden">
+  <div class="page-title"><div><span class="eyebrow">VODAFONE / SUBSCRIBERS</span><h2>المشتركين</h2><p class="muted">تابع كل التفعيلات والتحصيل من شاشة واحدة.</p></div><button id="addSubscriberBtn" class="primary">＋ تفعيل جديد</button></div>
+  <div class="tabs pro-tabs"><button class="day active" data-day="11">يوم 11</button><button class="day" data-day="26">يوم 26</button></div>
+  <div id="subscriberSummary" class="summary"></div>
+  <div class="filters pro-filters"><input id="search" placeholder="⌕ ابحث بالاسم أو الرقم أو التواصل"><select id="statusFilter"><option value="all">كل الحالات</option><option value="unpaid">غير مسدد</option><option value="paid">مسدد</option></select><select id="merchantFilter"><option value="all">كل الموردين</option></select><select id="buyerFilter"><option value="all">كل العملاء/التجار المشترين</option></select><select id="packageFilter"><option value="all">كل الباقات</option><option>10</option><option>20</option><option>30</option><option>40</option><option>50</option><option>60</option><option>70</option></select></div>
+  <div class="toolbar pro-toolbar"><button id="selectAllBtn" class="ghost">☑ تحديد الكل</button><button id="paySelectedBtn" class="primary">✓ تسديد المحدد</button><button id="payOwaisBtn" class="warning">₺ تسديد حساب عويس</button><button id="exportCsvBtn" class="ghost">⬇ تصدير Excel/CSV</button></div>
+  <div id="subscriberList" class="grid"></div>
+</section>
+
+<section id="merchantsPage" class="page hidden">
+  <div class="page-title"><div><span class="eyebrow">VODAFONE / MERCHANTS</span><h2>التجار</h2><p class="muted">قياس الأداء حسب كل تاجر.</p></div></div>
+  <div id="merchantTabs" class="tabs pro-tabs"></div>
+  <div id="merchantSummary" class="summary"></div><div id="merchantList" class="grid"></div>
+</section>
+
+<section id="dashboardPage" class="page hidden">
+  <div class="page-title"><div><span class="eyebrow">CONTROL CENTER / SETTINGS</span><h2>الأرباح والإعدادات</h2><p class="muted">كل إعدادات النظام والنسخ الاحتياطي والمزامنة.</p></div></div>
+  <div id="reportStats" class="stat-grid executive"></div>
+  <div class="dashboard-grid">
+    <div class="panel pro-panel"><div class="panel-title"><div><span>FINANCIAL</span><h3>تكلفة شراء الباقات</h3></div><div class="panel-icon">◒</div></div><div id="costInputs" class="cost-grid"></div><button id="saveCostsBtn" class="primary">حفظ التكاليف</button></div>
+    <div class="panel pro-panel"><div class="panel-title"><div><span>SMART INSIGHTS</span><h3>لمحة سريعة عن التجار المشترين</h3></div><div class="panel-icon blue">★</div></div><div id="buyerSummary" class="buyer-summary"></div></div>
+    <div class="panel pro-panel"><div class="panel-title"><div><span>OWAIS ACCOUNT</span><h3>حساب عويس</h3></div><div class="panel-icon green">✓</div></div><div id="owaisAccount" class="owais-box"></div><button id="payOwaisAllBtn" class="warning">تسديد كامل حساب عويس</button></div>
+    <div class="panel pro-panel"><div class="panel-title"><div><span>SECURITY</span><h3>إعدادات الدخول</h3></div><div class="panel-icon">⌁</div></div><div class="form-grid"><label>اسم المستخدم<input id="settingUser"></label><label>كلمة المرور<input id="settingPass" type="password"></label></div><button id="saveLoginBtn" class="primary">حفظ بيانات الدخول</button></div>
+    <div class="panel pro-panel"><div class="panel-title"><div><span>MERCHANTS</span><h3>إدارة التجار</h3></div><div class="panel-icon">▣</div></div><div class="form-inline"><input id="newMerchantName" placeholder="اسم التاجر الجديد"><button id="addMerchantBtn" class="primary">＋ إضافة تاجر</button></div><div id="merchantManager" class="manager-list"></div><div class="sync-help">التاجر الجديد يظهر تلقائيًا في شاشة المشتركين، والتاجر المحذوف لا يمكن حذفه إذا كان عليه أرقام مرتبطة حفاظًا على البيانات.</div></div>
+    <div class="panel pro-panel buyer-panel"><div class="panel-title"><div><span>BUYERS / WHO TAKES FROM YOU</span><h3>التجار اللي بياخدوا منك</h3></div><div class="panel-icon blue">↗</div></div><div class="form-inline"><input id="newBuyerName" placeholder="اسم التاجر اللي بيشتري منك"><button id="addBuyerBtn" class="primary">＋ إضافة تاجر مشتري</button></div><div id="buyerManager" class="manager-list"></div><div id="buyerSummarySettings" class="buyer-summary"></div><div class="sync-help">عويس موجود تلقائيًا كتاجر مشتري. أي تاجر جديد تضيفه سيظهر عند تسجيل التفعيل، وتقدر تتابع المستحق عليه بشكل مستقل.</div></div>
+    <div class="panel pro-panel appearance-panel"><div class="panel-title"><div><span>GLOBAL DESIGN SYSTEM</span><h3>استوديو تصميم الموقع</h3></div><div class="panel-icon">✦</div></div><div class="form-grid"><label>اسم الموقع<input id="appearanceBrand"></label><label>الوصف القصير<input id="appearanceTagline"></label><label>العنوان الرئيسي<input id="appearanceHeroTitle"></label><label>وصف الصفحة الرئيسية<input id="appearanceHeroSubtitle"></label><label>اللون الأساسي<input id="appearancePrimary" type="color"></label><label>اللون المساعد<input id="appearanceAccent" type="color"></label><label>لون الخلفية<input id="appearanceBg" type="color"></label><label>لون البطاقات<input id="appearancePanel" type="color"></label><label>لون النص<input id="appearanceText" type="color"></label><label>رابط صورة الخلفية<input id="appearanceImage" placeholder="https://.../background.jpg"></label></div><div class="upload-row"><label class="file-btn">⬆ رفع صورة خلفية<input id="backgroundUpload" type="file" accept="image/*"></label><button id="saveAppearanceBtn" class="primary">✦ حفظ وتطبيق التصميم</button></div><div class="sync-help">أي تعديل هنا بيتحفظ داخل بيانات ESH7NLY ويتزامن مع الأجهزة. تقدر تغيّر الهوية والألوان والخلفية والعنوان الرئيسي من غير تعديل الكود.</div></div>
+    <div class="panel pro-panel"><div class="panel-title"><div><span>MONTHLY COLLECTION</span><h3>رسائل الحساب الشهري على واتساب</h3></div><div class="panel-icon green">✉</div></div><p class="muted">جهّز رسالة حساب لكل عميل غير تابع لعويس. عويس يستلم رسالة واحدة بإجمالي حساب كل أرقامه. واتساب هيفتح الرسالة جاهزة، وتضغط إرسال بنفسك.</p><label>رقم واتساب عويس<input id="owaisWhatsapp" inputmode="tel" placeholder="مثال: 01012345678"></label><div class="actions wrap"><button id="saveBillingSettingsBtn" class="ghost">حفظ رقم عويس</button><button id="refreshBillingBtn" class="primary">تجهيز رسائل الحسابات</button><button id="owaisBillingBtn" class="warning">تجهيز حساب عويس المجمع</button></div><div id="billingMessages" class="manager-list"></div><div class="sync-help">الرسائل لا تُرسل تلقائيًا؛ كل رسالة تفتح في واتساب للمراجعة والإرسال، لتجنب إرسال حساب خاطئ.</div></div>
+    <div class="panel pro-panel"><div class="panel-title"><div><span>WAITLIST</span><h3>قائمة انتظار العملاء الجدد</h3></div><div class="panel-icon blue">◷</div></div><form id="waitlistForm" class="form-grid"><label>اسم العميل<input id="waitName" required></label><label>رقم واتساب/التواصل<input id="waitPhone" inputmode="tel" required></label><label>الباقة المطلوبة<select id="waitPackage"><option value="10">10</option><option value="20">20</option><option value="30">30</option><option value="40">40</option><option value="50">50</option><option value="60">60</option><option value="70">70</option><option value="أي باقة">أي باقة</option></select></label><label>تاريخ الحجز المطلوب<input id="waitDate" type="date"></label><label>عدد الأيام قبلها<input id="waitLead" type="number" min="0" value="3"></label><label>ملاحظات<input id="waitNotes"></label><button class="primary" type="submit">＋ إضافة لقائمة الانتظار</button></form><div id="waitlistSummary" class="stat-grid"></div><div id="waitlistItems" class="manager-list"></div><div class="sync-help">القائمة محفوظة في Firebase. تقدر تتابع موعد العميل، وتفتح واتساب لتأكيد الحجز أو تنقل العميل للمشتركين يدويًا بعد الاتفاق.</div></div>
+    <div class="panel pro-panel"><div class="panel-title"><div><span>SYNC & BACKUP</span><h3>المزامنة والنسخ الاحتياطي</h3></div><div class="panel-icon blue">↻</div></div><div class="actions wrap"><button id="exportBtn" class="ghost">⬇ تصدير نسخة</button><label class="file-btn">⬆ استيراد نسخة<input id="importFile" type="file" accept=".json"></label><button id="forceSyncBtn" class="ghost">↻ مزامنة الآن</button><button id="testSyncBtn" class="outline">⚡ اختبار الاتصال</button></div><div id="syncStatus" class="sync-status">جاري التحقق…</div><div class="sync-help">المزامنة تعمل تلقائيًا كل عدة ثوانٍ. لو فتحت الحساب على جهازين، أي تعديل محفوظ يظهر على الجهاز الآخر بدون الحاجة لإعادة تحميل الصفحة.</div></div>
+  </div>
+  <div class="panel pro-panel"><div class="panel-title"><div><span>AUDIT TRAIL</span><h3>سجل العمليات</h3></div></div><div id="activityLog" class="log"></div></div>
+</section>
+</main>
+</div>
+</div>
+
+<div id="modal" class="modal hidden"><div class="modal-card pro-modal"><div class="modal-head"><div><span class="eyebrow">SUBSCRIBER</span><h2 id="modalTitle">تفعيل جديد</h2></div><button id="closeModal" class="icon-btn">×</button></div><form id="subscriberForm"><input id="editId" type="hidden"><div class="form-grid"><label>الاسم<input id="fName" required></label><label>رقم المشترك<input id="fNumber" inputmode="tel" required></label><label>رقم التواصل<input id="fContact" inputmode="tel"></label><label>واتساب<input id="fWhatsapp" placeholder="https://wa.me/..."></label><label>الباقة<select id="fPackage"><option>10</option><option>20</option><option>30</option><option>40</option><option>50</option><option>60</option><option>70</option></select></label><label>سعر البيع<input id="fPrice" type="number" min="0" required></label><label>الباسورد<input id="fPassword"></label><label>تاريخ الاستحقاق<input id="fDueDate" type="date"></label><label>المورّد اللي أخدت منه<select id="fMerchant"></select></label><label>التاجر/العميل اللي بياخد منك<select id="fBuyer"><option value="">لا يوجد / بيع مباشر</option></select></label></div><label>ملاحظات<textarea id="fNotes"></textarea></label><label class="check"><input id="fOwais" type="checkbox"> تبع عويس (اختصار قديم)</label><div id="costWarning" class="warning-box hidden"></div><button class="primary full" type="submit">حفظ التفعيل <span>↗</span></button></form></div></div>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+<script src="script.js"></script>
+<script>if("serviceWorker" in navigator && location.protocol.startsWith("http")){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));}</script>
+</body>
+</html>
