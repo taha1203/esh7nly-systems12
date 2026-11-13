@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f5f7fb"><title>التسجيل في ESH7NLY</title>
+<link rel="stylesheet" href="style.css">
+<style>
+body{min-height:100vh;background:linear-gradient(135deg,#f4f7fb,#edf2f8);color:#172033}.registration-shell{width:min(760px,calc(100% - 28px));margin:34px auto}.registration-brand{display:flex;align-items:center;gap:12px;margin-bottom:22px}.registration-brand .brand-mark{background:#c62828;color:#fff}.registration-card{background:#fff;border:1px solid #e0e7f0;border-radius:24px;padding:clamp(20px,5vw,38px);box-shadow:0 20px 60px #1d355710}.registration-card h1{margin:5px 0 8px;font-size:clamp(25px,5vw,34px)}.registration-card p{color:#64748b;line-height:1.8}.registration-choice{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:22px 0}.registration-choice button{background:#f8fafc;border:1px solid #dce5ef;color:#172033;border-radius:15px;padding:18px;font-weight:800;text-align:right}.registration-choice button.active{border:2px solid #c62828;background:#fff5f6;color:#b91c1c}.registration-form{display:grid;gap:13px}.registration-form label{display:grid;gap:7px;color:#475569;font-size:13px;font-weight:700}.registration-form input,.registration-form select,.registration-form textarea{width:100%;padding:13px;border:1px solid #d6dfeb;border-radius:11px;background:#fff;color:#172033;font:inherit}.registration-form textarea{min-height:90px;resize:vertical}.registration-form .primary{width:100%;padding:14px;margin-top:5px}.registration-success{text-align:center;padding:25px 8px}.registration-success .success-icon{width:68px;height:68px;border-radius:50%;background:#e7f8ef;color:#07834d;display:grid;place-items:center;font-size:32px;margin:0 auto 15px}.request-code{background:#f3f6fa;border:1px dashed #b8c7d9;padding:14px;border-radius:12px;font-weight:900;letter-spacing:1px;margin:15px 0}.registration-note{font-size:12px;color:#64748b;margin-top:18px;line-height:1.8}.hidden{display:none!important}@media(max-width:560px){.registration-choice{grid-template-columns:1fr}.registration-shell{margin:18px auto}}
+</style>
+</head>
+<body>
+<div class="registration-shell">
+  <div class="registration-brand"><div class="brand-mark">E</div><div><b class="brand-text">ESH7NLY</b><div class="brand-sub">SMART TELECOM MANAGEMENT</div></div></div>
+  <div class="registration-card">
+    <div id="registrationFormView">
+      <span class="eyebrow">JOIN ESH7NLY</span><h1>ابدأ طلب اشتراكك بسهولة</h1><p>اختار نوع الطلب واملأ البيانات. فريق ESH7NLY هيراجع طلبك ويتواصل معاك.</p>
+      <div class="registration-choice"><button type="button" id="customerChoice" class="active">👤 عايز أشترك كعميل</button><button type="button" id="merchantChoice">▣ عايز أنضم كتاجر</button></div>
+      <form id="publicRegistrationForm" class="registration-form">
+        <label>الاسم بالكامل<input id="regName" required maxlength="80" autocomplete="name" placeholder="اكتب اسمك"></label>
+        <label>رقم فودافون / رقم الموبايل<input id="regPhone" required inputmode="tel" maxlength="20" placeholder="01xxxxxxxxx"></label>
+        <label>رقم واتساب للتواصل<input id="regWhatsapp" inputmode="tel" maxlength="20" placeholder="لو مختلف عن رقم الموبايل"></label>
+        <div id="customerFields"><label>الباقة المطلوبة<select id="regPackage"><option value="10">10 جنيه</option><option value="20">20 جنيه</option><option value="30">30 جنيه</option><option value="40">40 جنيه</option><option value="50">50 جنيه</option><option value="60">60 جنيه</option><option value="70">70 جنيه</option></select></label><label>موعد التفعيل المفضل<select id="regDay"><option value="11">يوم 11</option><option value="26">يوم 26</option><option value="any">أي موعد متاح</option></select></label></div>
+        <div id="merchantFields" class="hidden"><label>اسم النشاط أو المنطقة (اختياري)<input id="regBusiness" maxlength="100" placeholder="اسم النشاط / المنطقة"></label></div>
+        <label>ملاحظات إضافية<textarea id="regNotes" maxlength="500" placeholder="اكتب أي تفاصيل تساعدنا في مراجعة الطلب"></textarea></label>
+        <button class="primary" id="submitRegistration" type="submit">إرسال الطلب للمراجعة ↗</button>
+      </form>
+      <div class="registration-note">إرسال الطلب لا يعني تفعيل الاشتراك تلقائيًا. سيتم التواصل معك بعد مراجعة البيانات. لا تكتب كلمة مرور حساب فودافون أو أي رمز تحقق في هذا النموذج.</div>
+    </div>
+    <div id="registrationSuccess" class="registration-success hidden"><div class="success-icon">✓</div><span class="eyebrow">REQUEST RECEIVED</span><h1>طلبك وصل بنجاح!</h1><p>شكرًا لثقتك في ESH7NLY. طلبك حاليًا قيد المراجعة، وهنراجع بياناتك ونتواصل معاك.</p><div class="request-code" id="requestCode"></div><button class="ghost" id="newRequestBtn">إرسال طلب آخر</button></div>
+    <div id="registrationError" class="warning-box hidden"></div>
+  </div>
+</div>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script><script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+<script>
+const firebaseConfig={databaseURL:"https://esh7nly-62354-default-rtdb.firebaseio.com/"};if(!firebase.apps.length)firebase.initializeApp(firebaseConfig);const db=firebase.database();let requestType="customer";
+const $=id=>document.getElementById(id);function choose(type){requestType=type;$('customerChoice').classList.toggle('active',type==='customer');$('merchantChoice').classList.toggle('active',type==='merchant');$('customerFields').classList.toggle('hidden',type!=='customer');$('merchantFields').classList.toggle('hidden',type!=='merchant')}
+$('customerChoice').onclick=()=>choose('customer');$('merchantChoice').onclick=()=>choose('merchant');$('newRequestBtn').onclick=()=>{ $('registrationSuccess').classList.add('hidden');$('registrationFormView').classList.remove('hidden');$('publicRegistrationForm').reset();choose('customer')};
+$('publicRegistrationForm').addEventListener('submit',async e=>{e.preventDefault();const btn=$('submitRegistration');const phone=$('regPhone').value.trim().replace(/[\s-]/g,'');if(!/^\+?[0-9]{8,15}$/.test(phone)){ $('registrationError').textContent='من فضلك اكتب رقم موبايل صحيح.';$('registrationError').classList.remove('hidden');return }btn.disabled=true;btn.textContent='جاري إرسال الطلب…';$('registrationError').classList.add('hidden');const id='req_'+Date.now().toString(36)+'_'+Math.random().toString(36).slice(2,7);const code='ESH-'+new Date().getFullYear()+'-'+Math.random().toString(36).slice(2,7).toUpperCase();const req={id,code,type:requestType,name:$('regName').value.trim(),phone,contact:phone,whatsapp:$('regWhatsapp').value.trim()||phone,package:requestType==='customer'?Number($('regPackage').value):null,day:requestType==='customer'?$('regDay').value:null,business:$('regBusiness').value.trim(),notes:$('regNotes').value.trim(),status:'pending',createdAt:new Date().toISOString(),createdLabel:new Date().toLocaleString('ar-EG')};try{await db.ref('esh7nly/registrationRequests/'+id).set(req);$('requestCode').textContent='رقم طلبك: '+code;$('registrationFormView').classList.add('hidden');$('registrationSuccess').classList.remove('hidden')}catch(err){console.error(err);$('registrationError').textContent='لم نتمكن من إرسال الطلب حاليًا. حاول مرة أخرى بعد قليل.';$('registrationError').classList.remove('hidden')}finally{btn.disabled=false;btn.textContent='إرسال الطلب للمراجعة ↗'}});
+</script>
+</body></html>
